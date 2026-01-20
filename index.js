@@ -4,9 +4,12 @@ const env=require('dotenv');
 env.config(); // to read .env file
 const mongoose=require('mongoose');
 const movie= require('./models/movie.model');
+const movieRoutes= require('./routes/movie.routes');
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+movieRoutes(app);
+
 app.get('/home',(req,res)=>{
     console.log("Get request received at /");
    
